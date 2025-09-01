@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+.bg-container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0F0F0F;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 38vw;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.banner-heading {
+    font-size: 28px;
+    font-weight: 600;
+    color: #F1F1F1;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.generate-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.generate-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.website-logo {
+    height: 400px;
+    width: auto;
+    margin-bottom: -30px;
+}
+
+.main-container {
+    background-color: black;
+}
+.bg-container-2 {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.top-logo {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.home-heading {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #33aaff;
+}
+
+.home-subtext {
+    font-size: 18px;
+    color: #bbbbbb;
+}
+
+.prompt-section {
+  margin-top: 80px;
+  text-align: center;
+  padding: 40px 20px;
+  background: #0e0e0e;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(100, 100, 255, 0.2);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prompt-heading {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.prompt-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.prompt-input {
+  width: 90%;
+  max-width: 600px;
+  padding: 16px 20px;
+  border: 2px solid #444;
+  border-radius: 12px;
+  background-color: #1c1c1c;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.prompt-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 5px rgba(79, 70, 229, 0.6);
+}
+
+.prompt-generate-btn {
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prompt-generate-btn:hover {
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Generated Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e0e0e;
+            color: #f5f5f5;
+            margin: 0;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-top: 40px; 
+            padding-top: 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .result-text h2,
+        .result-text h3 {
+            color: #ffd700;
+        }
+
+        /* 🎯 Floating Audio Summary Widget */
+        .audio-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(26, 26, 26, 0.95);
+            border: 2px solid #00bfff;
+            padding: 10px 15px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .audio-widget:hover {
+            transform: scale(1.05);
+        }
+
+        .audio-btn {
+            background: #00bfff;
+            color: black;
+            border: none;
+            padding: 8px 14px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .audio-btn:hover {
+            background: #009fd6;
+        }
+
+        /* Assistant GIF Styling */
+.assistant-gif {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
+    padding: 5px;
+    animation: assistant-glow 2s infinite ease-in-out;
+}
+
+/* Subtle glowing animation around GIF */
+@keyframes assistant-glow {
+    0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); }
+}
+
+/* Modern Audio Summary Button */
+.audio-summary-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: linear-gradient(135deg, #00f0ff, #0072ff);
+    color: white;
+    font-weight: bold;
+    padding: 12px 22px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Button hover effect */
+.audio-summary-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 25px rgba(0, 255, 255, 0.7);
+}
+
+.download-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 118, 150, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 9999;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 118, 150, 0.6);
+}
+
+.download-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Optional sound wave icon animation */
+@keyframes wave {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generated Report</h1>
+        <div class="result-text">
+            {{ result | safe }}    
+        </div>
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+
+    {% if audio_file %}
+<div style="position: fixed; bottom: 20px; right: 20px; text-align: center;">
+     <button class="download-btn" onclick="window.location.href='/download-pdf'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+        </svg>
+        Download PDF
+    </button>
+    <img src="{{ url_for('static', filename='audio/assistant.gif') }}" 
+         alt="Assistant" class="assistant-gif">
+    <audio id="audioSummary" src="{{ url_for('static', filename='audio/summary.mp3') }}"></audio>
+    <button onclick="document.getElementById('audioSummary').play()" class="audio-summary-btn">
+        🔊 Mini Assistant
+    </button>
+</div>
+{% endif %}
+
+</body>
+
+</html>

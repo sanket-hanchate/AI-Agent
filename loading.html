@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Your Report...</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .spinner {
+            border: 8px solid rgba(255,255,255,0.2);
+            border-top: 8px solid #00f5d4;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-text {
+            font-size: 1.5rem;
+            animation: fade 2s infinite;
+        }
+        @keyframes fade {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        p {
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="spinner"></div>
+    <div class="loading-text">Generating Your Amazing Plan...</div>
+    <p>Please hold tight, we’re crafting something special for you</p>
+    <form id="hiddenForm" action="/generate" method="POST" style="display:none;">
+        <input type="hidden" name="prompt" value="{{ prompt }}">
+    </form>
+
+    
+    <script>
+        setTimeout(() => {
+            document.getElementById('hiddenForm').submit();
+        }, 1500); 
+    </script>
+</body>
+</html>

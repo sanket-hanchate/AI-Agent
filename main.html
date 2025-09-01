@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKet.AI - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="bg-container-2">
+        <div class="top-bar">
+            <img src="{{ url_for('static', filename='website-logo.png') }}" alt="SKet.AI Logo" class="top-logo" />
+        </div>
+
+        <div class="home-content">
+            <h1 class="home-heading">Welcome to SKet</h1>
+            <p class="home-subtext">Ready to bring your ideas to life? Let’s start building!</p>
+        </div>
+
+        <div class="prompt-section">
+            <h2 class="prompt-heading">What do you want SKet to plan?</h2>
+            <form action="/loading" method="POST" class="prompt-form">
+                <input type="text" name="prompt" class="prompt-input" placeholder="Enter your prompt here..."
+                    required />
+                <button type="submit" class="prompt-generate-btn">Generate Report</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
